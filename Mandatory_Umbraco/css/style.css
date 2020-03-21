@@ -1,0 +1,24 @@
+.main {
+    width:980px;
+    margin:0 auto;
+}
+
+
+#latestProjects h2 {
+    margin:15px 0;
+}
+
+#latestProjects ul li {
+    display:inline-block;
+    float:left;
+    width:50%;
+}
+
+.About img {
+    width:100%;
+}
+
+.Sitemap .level-3 {
+    margin-left:25px;
+    list-style:disc;
+}

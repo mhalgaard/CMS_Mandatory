@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+<head>
+  <title>@(Model.HasValue("titleTag") ? Model.Value("titleTag") : Model.Value("title"))</title>
+  <meta name="description" content="@Model.Value("metaDescription")">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/content/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>

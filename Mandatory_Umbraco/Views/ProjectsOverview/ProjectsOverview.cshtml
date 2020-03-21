@@ -1,0 +1,14 @@
+﻿<section>
+    @foreach (var item in Model.Projects)
+    {
+        <div class="projects">
+            <div class="projectTitle">
+                <a href="@item.Url">@item.Name</a>
+            </div>
+            <div class="projectPreview">
+                @Html.Raw(item.Value("projectDescription").ToString().Truncate(100))
+                <a href="@item.Url">Read More..</a>
+            </div>
+        </div>
+    }
+</section>

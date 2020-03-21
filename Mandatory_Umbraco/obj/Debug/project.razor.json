@@ -1,0 +1,19 @@
+{
+  "FilePath": "c:\\Users\\Mikkel\\Desktop\\CMS\\CMS_Homework\\Mandatory_Umbraco\\Mandatory_Umbraco.csproj",
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

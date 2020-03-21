@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Event>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "MASTER.cshtml";
+    var items = Model.Value<IEnumerable<IPublishedElement>>("speakers");
+    IPublishedContent typedContentPicker = Model.Value<IPublishedContent>("location");
+}
+
+@if (typedContentPicker != null) {
+    <h2>Location: @typedContentPicker.Value("title")</h2>
+}
+
+@foreach(var item in items)
+{
+    <h3>Speaker: @item.Value("firstName") @item.Value("LastName")</h3>
+    <p>Starting: <time>@(item.Value<DateTime>("StartTime").ToString("dd-MM-yyyy HH:mm"))</time></p>
+    <p>Ending: <time>@(item.Value<DateTime>("EndTime").ToString("dd-MM-yyyy HH:mm"))</time></p>
+}

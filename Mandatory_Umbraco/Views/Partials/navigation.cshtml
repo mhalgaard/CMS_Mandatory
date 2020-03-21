@@ -1,0 +1,41 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web
+
+@{
+    var root = Model.Root();
+    var selection = root.Children.Where(x => x.IsVisible()).ToArray();
+}
+
+@if (selection.Length > 0) {
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar bg-light">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item @(Model.Name == root.Name ? "active" : null)">
+                        <a class="nav-link" href="@root.Url">Home</a>
+                    </li>
+                    @foreach (var item in selection)
+                    {
+                        if (item.Children.Count() > 0 && Umbraco.MemberHasAccess(item.Path)) {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown">@item.Name</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    @foreach (var child in item.Children.Where(x => x.IsVisible()))
+                                        {
+                                            if (Umbraco.MemberHasAccess(child.Path)) {
+                                                    <a class="dropdown-item" href="@child.Url">@child.Name</a>
+                                            }
+                                        }
+                                </div>
+                            </li>
+                        } else if (Umbraco.MemberHasAccess(item.Path)) {
+                            <li class="nav-item @(item.IsAncestorOrSelf(Model) ? " active" : null)">
+                                <a class="nav-link" href="@item.Url">@item.Name</a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </nav>
+    </div>
+}

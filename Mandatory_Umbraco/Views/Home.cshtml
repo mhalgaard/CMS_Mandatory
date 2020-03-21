@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Home>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "MASTER.cshtml";
+}
+
+<section id="latestProjects">
+    <h2>5 seneste projekter</h2>
+    <ul>
+        @Umbraco.RenderMacro("listNewestProjects", new {numOfProjects="5"})
+    </ul>
+</section>
+
